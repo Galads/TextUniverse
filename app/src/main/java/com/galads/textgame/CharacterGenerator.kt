@@ -1,5 +1,7 @@
 package com.galads.textgame
 
+import java.io.Serializable
+
 private fun <T> List<T>.rand() = shuffled().first()
 
 private fun Int.roll() = (0 until this)
@@ -15,7 +17,8 @@ object CharacterGenerator {
                              val race: String,
                              val dex: String,
                              val wis: String,
-                             val str: String )
+                             val str: String ) : Serializable
+
     private fun name() = "${firstName.rand()} ${lastName.rand()}"
 
     private fun race() = listOf("dwarf", "elf", "human", "halfing").rand()
